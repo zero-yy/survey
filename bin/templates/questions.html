@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>问卷</title>
+</head>
+
+<body>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="page-header">
+                <h1 style="text-align: center;">
+                    问卷 <small>来自xxx</small>
+                </h1>
+            </div>
+
+            <form role="form" action="answers" method="post" >
+
+                <div class="form-group">
+                    <label for="yourName">Your name</label><input type="text" class="form-control" name="name" id="yourName" />
+                </div>
+
+                <ol>
+                    <li>
+                        Who are you?<br>
+                        <div class="radio">
+                        <label><input type="radio" name="q1" value="A" required> A.~~~</label><br>
+                        <label><input type="radio" name="q1" value="B" required> B.~~~</label><br>
+                        <label><input type="radio" name="q1" value="C" required> C.~~~</label><br>
+                        </div>
+                    </li>
+                    <li>
+                        Where are you from?<br>
+                        <div class="radio">
+                            <label><input type="radio" name="q2" value="A" required> A.~~~</label><br>
+                            <label><input type="radio" name="q2" value="B" required> B.~~~</label><br>
+                            <label><input type="radio" name="q2" value="C" required> C.~~~</label><br>
+                        </div>
+                    </li>
+                    <li>
+                        Where are you going?<br>
+                        <div class="radio">
+                            <label><input type="radio" name="q3" value="A" required> A.~~~</label><br>
+                            <label><input type="radio" name="q3" value="B" required> B.~~~</label><br>
+                            <label><input type="radio" name="q3" value="C" required> C.~~~</label><br>
+                        </div>
+                    </li>
+                </ol>
+{{/*                <div class="form-group">*/}}
+{{/*                    <label for="exampleInputEmail1">Email address</label><input type="email" class="form-control" id="exampleInputEmail1" />*/}}
+{{/*                </div>*/}}
+{{/*                <div class="checkbox">*/}}
+{{/*                    <label><input type="checkbox" />Check me out</label>*/}}
+{{/*                </div>*/}}
+                <button type="submit" class="btn btn-info btn-block">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

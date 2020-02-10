@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>TODO:标题</title>
+</head>
+
+<body>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="page-header">
+                <h1 style="text-align: center;">
+                    患者健康问卷抑郁筛查量表（PHQ-9）
+                </h1>
+            </div>
+
+            <form role="form" action="answerx/phq9" method="post" >
+                <ol>
+                    <li>
+                        几乎没有兴趣或乐趣去做事<br>
+                        <div class="radio">
+                        <label><input type="radio" name="q1" value="0" required> A.一点没有</label><br>
+                        <label><input type="radio" name="q1" value="1" required> B.有几天</label><br>
+                        <label><input type="radio" name="q1" value="2" required> C.超过1周</label><br>
+                        <label><input type="radio" name="q1" value="3" required> D.几乎每天</label><br>
+                        </div>
+                    </li>
+                    <li>
+                        感觉心情低落、抑郁或无助感<br>
+                        <div class="radio">
+                            <label><input type="radio" name="q2" value="0" required> A.一点没有</label><br>
+                            <label><input type="radio" name="q2" value="1" required> B.有几天</label><br>
+                            <label><input type="radio" name="q2" value="2" required> C.超过1周</label><br>
+                            <label><input type="radio" name="q2" value="3" required> D.几乎每天</label><br>
+                        </div>
+                    </li>
+					 <li>
+                        入睡困难、易醒，或睡眠过多<br>
+                        <div class="radio">
+                            <label><input type="radio" name="q3" value="0" required> A.一点没有</label><br>
+                            <label><input type="radio" name="q3" value="1" required> B.有几天</label><br>
+                            <label><input type="radio" name="q3" value="2" required> C.超过1周</label><br>
+                            <label><input type="radio" name="q3" value="3" required> D.几乎每天</label><br>
+                        </div>
+                    </li>
+					 <li>
+                         感觉疲倦，乏力，或缺乏精力<br>
+                        <div class="radio">
+                            <label><input type="radio" name="q4" value="0" required> A.一点没有</label><br>
+                            <label><input type="radio" name="q4" value="1" required> B.有几天</label><br>
+                            <label><input type="radio" name="q4" value="2" required> C.超过1周</label><br>
+                            <label><input type="radio" name="q4" value="3" required> D.几乎每天</label><br>
+                        </div>
+                    </li>
+					<li>
+                         没有胃口，或吃得过多<br>
+                        <div class="radio">
+                            <label><input type="radio" name="q5" value="0" required> A.一点没有</label><br>
+                            <label><input type="radio" name="q5" value="1" required> B.有几天</label><br>
+                            <label><input type="radio" name="q5" value="2" required> C.超过1周</label><br>
+                            <label><input type="radio" name="q5" value="3" required> D.几乎每天</label><br>
+                        </div>
+					</li>
+					<li>
+                         感觉自己很差，或自暴自弃，或自觉拖累了家人<br>
+                        <div class="radio">
+                            <label><input type="radio" name="q6" value="0" required> A.一点没有</label><br>
+                            <label><input type="radio" name="q6" value="1" required> B.有几天</label><br>
+                            <label><input type="radio" name="q6" value="2" required> C.超过1周</label><br>
+                            <label><input type="radio" name="q6" value="3" required> D.几乎每天</label><br>
+                        </div>
+                    </li>
+                    <li>
+                     注意力不能集中，比如看报或看电视<br>
+                    <div class="radio">
+                        <label><input type="radio" name="q7" value="0" required> A.一点没有</label><br>
+                        <label><input type="radio" name="q7" value="1" required> B.有几天</label><br>
+                        <label><input type="radio" name="q7" value="2" required> C.超过1周</label><br>
+                        <label><input type="radio" name="q7" value="3" required> D.几乎每天</label><br>
+                    </div>
+                    </li>
+                    <li>
+                     其他人可以注意到的行动或讲话迟缓；或者相反，因为烦躁不安而不停地走来走去<br>
+                    <div class="radio">
+                        <label><input type="radio" name="q8" value="0" required> A.一点没有</label><br>
+                        <label><input type="radio" name="q8" value="1" required> B.有几天</label><br>
+                        <label><input type="radio" name="q8" value="2" required> C.超过1周</label><br>
+                        <label><input type="radio" name="q8" value="3" required> D.几乎每天</label><br>
+                    </div>
+                    </li>
+                    <li>
+                     感到还不如死了好，或想以某种方式伤害自己<br>
+                    <div class="radio">
+                        <label><input type="radio" name="q9" value="0" required> A.一点没有</label><br>
+                        <label><input type="radio" name="q9" value="1" required> B.有几天</label><br>
+                        <label><input type="radio" name="q9" value="2" required> C.超过1周</label><br>
+                        <label><input type="radio" name="q9" value="3" required> D.几乎每天</label><br>
+                    </div>
+                    </li>
+                <button type="submit" class="btn btn-info btn-block">查看报告</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

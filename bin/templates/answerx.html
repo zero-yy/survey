@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.js"></script>
+{{/*    <script src="http://html2canvas.hertzen.com/dist/html2canvas.min.js" type="text/javascript" charset="utf-8" async defer></script>*/}}
+{{/*    <script src="js/canvas2image.js" type="text/javascript" charset="utf-8" async defer></script>*/}}
+
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>{{ .name }} 报告</title>
+
+    <script type="text/javascript">
+        $(function(){
+            $("#btnPrint").click(function(){
+                $("#btnPrint").hide()
+
+                console.log("call btnPrint")
+
+                html2canvas(document.body).then(function(canvas) {
+                    // document.body.appendChild(canvas);
+                    var imgUri = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream"); // 获取生成的图片的url
+                    window.location.href= imgUri; // 下载图片
+                    console.log(imgUri)
+                });
+
+                // html2canvas($(".container")).then(function(canvas) {
+                //     // document.body.appendChild(canvas);
+                //     var imgUri = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream"); // 获取生成的图片的url
+                //     window.location.href= imgUri; // 下载图片
+                //     console.log(imgUri)
+                // });
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="printContent">
+                <div class="page-header">
+                    <h1 style="text-align: center;">
+                        {{ .name }} 报告
+                    </h1>
+                </div>
+                <div class="pager" id="printContent">
+                    <div>
+                        您的总分: {{ .score }}<br>
+                    </div>
+                    <div>
+                        评价: {{ .des }}<br>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    aldskflasjdfasdf
+                </div>
+
+            </div>
+
+{{/*            <div>*/}}
+{{/*                <button type="submit" class="btn btn-info btn-block" id="btnPrint">Save</button>*/}}
+{{/*            </div>*/}}
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

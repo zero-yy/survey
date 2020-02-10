@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>TODO:标题</title>
+</head>
+
+<body>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="page-header">
+                <h1 style="text-align: center;">
+                    患者健康问卷焦虑分量表（GAD-7）
+                </h1>
+            </div>
+
+            <form role="form" action="answerx/gad7" method="post" >
+                <ol>
+                    <li>
+                        感到紧张、不安或烦躁<br>
+                        <div class="radio">
+                        <label><input type="radio" name="q1" value="0" required> A.一点没有</label><br>
+                        <label><input type="radio" name="q1" value="1" required> B.有几天</label><br>
+                        <label><input type="radio" name="q1" value="2" required> C.超过1周</label><br>
+                        <label><input type="radio" name="q1" value="3" required> D.几乎每天</label><br>
+                        </div>
+                    </li>
+                    <li>
+                        无法停止或控制地忧虑<br>
+                        <div class="radio">
+                            <label><input type="radio" name="q2" value="0" required> A.一点没有</label><br>
+                            <label><input type="radio" name="q2" value="1" required> B.有几天</label><br>
+                            <label><input type="radio" name="q2" value="2" required> C.超过1周</label><br>
+                            <label><input type="radio" name="q2" value="3" required> D.几乎每天</label><br>
+                        </div>
+                    </li>
+
+                <button type="submit" class="btn btn-info btn-block">查看报告</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

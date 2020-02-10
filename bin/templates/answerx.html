@@ -12,7 +12,17 @@
 {{/*    <script src="js/canvas2image.js" type="text/javascript" charset="utf-8" async defer></script>*/}}
 
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>{{ .name }} 报告</title>
+    <title>您的报告({{ .name }})</title>
+
+    <style type="text/css">
+        pre{
+        white-space: pre-wrap; /* css-3 */
+        white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+        white-space: -pre-wrap; /* Opera 4-6 */
+        white-space: -o-pre-wrap; /* Opera 7 */
+        word-wrap: break-word; /* Internet Explorer 5.5+ */
+        }
+    </style>
 
     <script type="text/javascript">
         $(function(){
@@ -47,19 +57,21 @@
             <div class="printContent">
                 <div class="page-header">
                     <h1 style="text-align: center;">
-                        {{ .name }} 报告
+                        您的报告({{ .name }})
                     </h1>
                 </div>
-                <div class="pager" id="printContent">
+                <div class="h4" id="printContent">
                     <div>
-                        您的总分: {{ .score }}<br>
+                        评价: {{ .des }}<br><br>
                     </div>
                     <div>
-                        评价: {{ .des }}<br>
+                        总分: {{ .score }}<br><br>
                     </div>
+
                 </div>
                 <div class="panel-footer">
-                    aldskflasjdfasdf
+                    报告分析参考<br><br>
+                    <pre>{{ .des_ref }}</pre>
                 </div>
 
             </div>

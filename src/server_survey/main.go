@@ -107,10 +107,10 @@ func main() {
 	//r.POST("/answers_readonly", postAnswersReadonly)
 	//r.GET("/answers_readonly", getAnswersReadonly)
 
-	r.StaticFS("/css", http.Dir("css"))
-	r.StaticFS("/js", http.Dir("js"))
+	r.StaticFS("/css", http.Dir("../css"))
+	r.StaticFS("/js", http.Dir("../js"))
 	//r.StaticFS("/templates", http.Dir("templates"))
-	r.LoadHTMLGlob("templates/*")
+	r.LoadHTMLGlob("../templates/*")
 
 	//r.StaticFile("/questions", "./questions.html")
 	//r.GET("/upload", onUpload)

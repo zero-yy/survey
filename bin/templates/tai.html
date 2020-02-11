@@ -7,7 +7,7 @@
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>一般健康问卷-12（GHQ-12）</title>
+    <title>特质焦虑量表（STAI，Form Y-l，简称T-AI)</title>
 </head>
 
 <body>
@@ -16,123 +16,196 @@
         <div class="col-md-12 column">
             <div class="page-header">
                 <h2 style="text-align: center;">
-                    一般健康问卷-12（GHQ-12）
+                    特质焦虑量表（STAI，Form Y-l，简称T-AI)
                 </h2>
             </div>
 
             <form role="form" action="answerx/tai" method="post" >
                 <div class="panel-heading">
-                    <h5>这里的问题是针对最近2-3周的状况。</h5>
+                    <h5>请阅读每一个陈述，然后在右边适当的圈上打勾来表示你现在最恰当的感觉</h5>
                 </div>
                 <ol>
                     <li>
-                        在做事情的时候，能够集中精力吗<br>
+                        我感到愉快<br>
 						<div class="radio">
-                        <label><input type="radio" name="q1" value="0" required> A.能集中</label><br>
-                        <label><input type="radio" name="q1" value="0" required> B.和平时一样</label><br>
-                        <label><input type="radio" name="q1" value="1" required> C.不能集中</label><br>
-                        <label><input type="radio" name="q1" value="1" required> D.完全不能集中</label><br>
+                        <label><input type="radio" name="q1" value="1" required> A.几乎没有</label><br>
+                        <label><input type="radio" name="q1" value="2" required> B.有些</label><br>
+                        <label><input type="radio" name="q1" value="3" required> C.经常</label><br>
+                        <label><input type="radio" name="q1" value="4" required> D.几乎总是如此</label><br>
                         </div>
                     </li>
-					 <li>
-                        有由于过分担心而失眠的情况吗<br>
+					<li>
+                        感到神经过敏和不安<br>
 						<div class="radio">
-                        <label><input type="radio" name="q2" value="0" required> A.没有过</label><br>
-                        <label><input type="radio" name="q2" value="0" required> B.和平时一样</label><br>
-                        <label><input type="radio" name="q2" value="1" required> C.有过</label><br>
-                        <label><input type="radio" name="q2" value="1" required> D.总这样</label><br>
+                        <label><input type="radio" name="q2" value="1" required> A.几乎没有</label><br>
+                        <label><input type="radio" name="q2" value="2" required> B.有些</label><br>
+                        <label><input type="radio" name="q2" value="3" required> C.经常</label><br>
+                        <label><input type="radio" name="q2" value="4" required> D.几乎总是如此</label><br>
                         </div>
                     </li>
-					 <li>
-                        觉得自己是有用的人吗<br>
+					<li>
+                        我感到自我满足<br>
 						<div class="radio">
-                        <label><input type="radio" name="q3" value="0" required> A.有用</label><br>
-                        <label><input type="radio" name="q3" value="0" required> B.和平时一样</label><br>
-                        <label><input type="radio" name="q3" value="1" required> C.没有用</label><br>
-                        <label><input type="radio" name="q3" value="1" required> D.完全没有用</label><br>
+                        <label><input type="radio" name="q3" value="4" required> A.几乎没有</label><br>
+                        <label><input type="radio" name="q3" value="3" required> B.有些</label><br>
+                        <label><input type="radio" name="q3" value="2" required> C.经常</label><br>
+                        <label><input type="radio" name="q3" value="1" required> D.几乎总是如此</label><br>
                         </div>
                     </li>
-					 <li>
-                        觉得自己有决断力吗<br>
+					<li>
+                        我希望能象别人那样高兴<br>
 						<div class="radio">
-                        <label><input type="radio" name="q4" value="0" required> A.有</label><br>
-                        <label><input type="radio" name="q4" value="0" required> B.和平时一样</label><br>
-                        <label><input type="radio" name="q4" value="1" required> C.没有</label><br>
-                        <label><input type="radio" name="q4" value="1" required> D.完全没有</label><br>
+                        <label><input type="radio" name="q4" value="4" required> A.几乎没有</label><br>
+                        <label><input type="radio" name="q4" value="3" required> B.有些</label><br>
+                        <label><input type="radio" name="q4" value="2" required> C.经常</label><br>
+                        <label><input type="radio" name="q4" value="1" required> D.几乎总是如此</label><br>
                         </div>
                     </li>
-					 <li>
-                        总是处于紧张状态吗？<br>
+					<li>
+                        我感到我象衰竭一样<br>
 						<div class="radio">
-                        <label><input type="radio" name="q5" value="0" required> A.不紧张</label><br>
-                        <label><input type="radio" name="q5" value="0" required> B.和平时一样</label><br>
-                        <label><input type="radio" name="q5" value="1" required> C.紧张</label><br>
-                        <label><input type="radio" name="q5" value="1" required> D.非常紧张</label><br>
+                        <label><input type="radio" name="q5" value="1" required> A.几乎没有</label><br>
+                        <label><input type="radio" name="q5" value="2" required> B.有些</label><br>
+                        <label><input type="radio" name="q5" value="3" required> C.经常</label><br>
+                        <label><input type="radio" name="q5" value="4" required> D.几乎总是如此</label><br>
                         </div>
                     </li>
-					 <li>
-                        觉得自己不能解决问题吗<br>
+					<li>
+                        我感到很宁静<br>
 						<div class="radio">
-                        <label><input type="radio" name="q6" value="0" required> A.能</label><br>
-                        <label><input type="radio" name="q6" value="0" required> B.和平时一样</label><br>
-                        <label><input type="radio" name="q6" value="1" required> C.不能</label><br>
-                        <label><input type="radio" name="q6" value="1" required> D.完全不能</label><br>
+                        <label><input type="radio" name="q6" value="4" required> A.几乎没有</label><br>
+                        <label><input type="radio" name="q6" value="3" required> B.有些</label><br>
+                        <label><input type="radio" name="q6" value="2" required> C.经常</label><br>
+                        <label><input type="radio" name="q6" value="1" required> D.几乎总是如此</label><br>
                         </div>
                     </li>
-					 <li>
-                        能享受日常活动吗<br>
+					<li>
+                        我是平静的、冷静的和泰然自若的<br>
 						<div class="radio">
-                        <label><input type="radio" name="q7" value="0" required> A.能</label><br>
-                        <label><input type="radio" name="q7" value="0" required> B.和平时一样</label><br>
-                        <label><input type="radio" name="q7" value="1" required> C.不能</label><br>
-                        <label><input type="radio" name="q7" value="1" required> D.完全不能</label><br>
+                        <label><input type="radio" name="q7" value="4" required> A.几乎没有</label><br>
+                        <label><input type="radio" name="q7" value="3" required> B.有些</label><br>
+                        <label><input type="radio" name="q7" value="2" required> C.经常</label><br>
+                        <label><input type="radio" name="q7" value="1" required> D.几乎总是如此</label><br>
                         </div>
                     </li>
-					 <li>
-                        能够面对你所面临的问题吗<br>
+					<li>
+                        我感到困难一一堆集起来，因此无法克服<br>
 						<div class="radio">
-                        <label><input type="radio" name="q8" value="0" required> A.能集</label><br>
-                        <label><input type="radio" name="q8" value="0" required> B.和平时一样</label><br>
-                        <label><input type="radio" name="q8" value="1" required> C.不能</label><br>
-                        <label><input type="radio" name="q8" value="1" required> D.完全不能</label><br>
+                        <label><input type="radio" name="q8" value="1" required> A.几乎没有</label><br>
+                        <label><input type="radio" name="q8" value="2" required> B.有些</label><br>
+                        <label><input type="radio" name="q8" value="3" required> C.经常</label><br>
+                        <label><input type="radio" name="q8" value="4" required> D.几乎总是如此</label><br>
                         </div>
                     </li>
-					 <li>
-                        感到痛苦、忧虑吗<br>
+					<li>
+                        我过分优虑一些事，实际这些事无关紧要<br>
 						<div class="radio">
-                        <label><input type="radio" name="q9" value="0" required> A.不觉得</label><br>
-                        <label><input type="radio" name="q9" value="0" required> B.和平时一样</label><br>
-                        <label><input type="radio" name="q9" value="1" required> C.觉得</label><br>
-                        <label><input type="radio" name="q9" value="1" required> D.总是觉得</label><br>
+                        <label><input type="radio" name="q9" value="1" required> A.几乎没有</label><br>
+                        <label><input type="radio" name="q9" value="2" required> B.有些</label><br>
+                        <label><input type="radio" name="q9" value="3" required> C.经常</label><br>
+                        <label><input type="radio" name="q9" value="4" required> D.几乎总是如此</label><br>
                         </div>
                     </li>
-					 <li>
-                        失去自信了吗？<br>
+					<li>
+                        我是高兴的<br>
 						<div class="radio">
-                        <label><input type="radio" name="q10" value="0" required> A.没有</label><br>
-                        <label><input type="radio" name="q10" value="0" required> B.和平时一样</label><br>
-                        <label><input type="radio" name="q10" value="1" required> C.失去</label><br>
-                        <label><input type="radio" name="q10" value="1" required> D.完全失去</label><br>
+                        <label><input type="radio" name="q10" value="4" required> A.几乎没有</label><br>
+                        <label><input type="radio" name="q10" value="3" required> B.有些</label><br>
+                        <label><input type="radio" name="q10" value="2" required> C.经常</label><br>
+                        <label><input type="radio" name="q10" value="1" required> D.几乎总是如此</label><br>
                         </div>
                     </li>
-					 <li>
-                        觉得自己是个没有价值的人吗<br>
+					<li>
+                        我的思想处于混乱状态<br>
 						<div class="radio">
-                        <label><input type="radio" name="q11" value="0" required> A.没有觉得</label><br>
-                        <label><input type="radio" name="q11" value="0" required> B.和平时一样</label><br>
-                        <label><input type="radio" name="q11" value="1" required> C.觉得</label><br>
-                        <label><input type="radio" name="q11" value="1" required> D.总是觉得</label><br>
+                        <label><input type="radio" name="q11" value="1" required> A.几乎没有</label><br>
+                        <label><input type="radio" name="q11" value="2" required> B.有些</label><br>
+                        <label><input type="radio" name="q11" value="3" required> C.经常</label><br>
+                        <label><input type="radio" name="q11" value="4" required> D.几乎总是如此</label><br>
                         </div>
                     </li>
-					 <li>
-                        觉得所有的事情都顺利吗<br>
+					<li>
+                        我缺乏自信心<br>
 						<div class="radio">
-                        <label><input type="radio" name="q12" value="0" required> A.顺利</label><br>
-                        <label><input type="radio" name="q12" value="0" required> B.和平时一样</label><br>
-                        <label><input type="radio" name="q12" value="1" required> C.不顺利</label><br>
-                        <label><input type="radio" name="q12" value="1" required> D.完全不顺利</label><br>
+                        <label><input type="radio" name="q12" value="1" required> A.几乎没有</label><br>
+                        <label><input type="radio" name="q12" value="2" required> B.有些</label><br>
+                        <label><input type="radio" name="q12" value="3" required> C.经常</label><br>
+                        <label><input type="radio" name="q12" value="4" required> D.几乎总是如此</label><br>
                         </div>
                     </li>
+					<li>
+                        我感到安全<br>
+						<div class="radio">
+                        <label><input type="radio" name="q13" value="4" required> A.几乎没有</label><br>
+                        <label><input type="radio" name="q13" value="3" required> B.有些</label><br>
+                        <label><input type="radio" name="q13" value="2" required> C.经常</label><br>
+                        <label><input type="radio" name="q13" value="1" required> D.几乎总是如此</label><br>
+                        </div>
+                    </li>
+					<li>
+                        我容易做出决断<br>
+						<div class="radio">
+                        <label><input type="radio" name="q14" value="4" required> A.几乎没有</label><br>
+                        <label><input type="radio" name="q14" value="3" required> B.有些</label><br>
+                        <label><input type="radio" name="q14" value="2" required> C.经常</label><br>
+                        <label><input type="radio" name="q14" value="1" required> D.几乎总是如此</label><br>
+                        </div>
+                    </li>
+					<li>
+                        我感到不合适<br>
+						<div class="radio">
+                        <label><input type="radio" name="q15" value="1" required> A.几乎没有</label><br>
+                        <label><input type="radio" name="q15" value="2" required> B.有些</label><br>
+                        <label><input type="radio" name="q15" value="3" required> C.经常</label><br>
+                        <label><input type="radio" name="q15" value="4" required> D.几乎总是如此</label><br>
+                        </div>
+                    </li>
+					<li>
+                        我是满足的<br>
+						<div class="radio">
+                        <label><input type="radio" name="q16" value="4" required> A.几乎没有</label><br>
+                        <label><input type="radio" name="q16" value="3" required> B.有些</label><br>
+                        <label><input type="radio" name="q16" value="2" required> C.经常</label><br>
+                        <label><input type="radio" name="q16" value="1" required> D.几乎总是如此</label><br>
+                        </div>
+                    </li>
+					<li>
+                        一些不重要的思想总缠绕着我，并打扰我<br>
+						<div class="radio">
+                        <label><input type="radio" name="q17" value="1" required> A.几乎没有</label><br>
+                        <label><input type="radio" name="q17" value="2" required> B.有些</label><br>
+                        <label><input type="radio" name="q17" value="3" required> C.经常</label><br>
+                        <label><input type="radio" name="q17" value="4" required> D.几乎总是如此</label><br>
+                        </div>
+                    </li>
+					<li>
+                        我产生的沮丧是如此强烈，以致我不能从思想中排除它们<br>
+						<div class="radio">
+                        <label><input type="radio" name="q18" value="1" required> A.几乎没有</label><br>
+                        <label><input type="radio" name="q18" value="2" required> B.有些</label><br>
+                        <label><input type="radio" name="q18" value="3" required> C.经常</label><br>
+                        <label><input type="radio" name="q18" value="4" required> D.几乎总是如此</label><br>
+                        </div>
+                    </li>
+					<li>
+                        我是一个镇定的人<br>
+						<div class="radio">
+                        <label><input type="radio" name="q19" value="4" required> A.几乎没有</label><br>
+                        <label><input type="radio" name="q19" value="3" required> B.有些</label><br>
+                        <label><input type="radio" name="q19" value="2" required> C.经常</label><br>
+                        <label><input type="radio" name="q19" value="1" required> D.几乎总是如此</label><br>
+                        </div>
+                    </li>
+					<li>
+                        当我考虑我目前的事情和利益时，我就陷人紧张状态<br>
+						<div class="radio">
+                        <label><input type="radio" name="q20" value="1" required> A.几乎没有</label><br>
+                        <label><input type="radio" name="q20" value="2" required> B.有些</label><br>
+                        <label><input type="radio" name="q20" value="3" required> C.经常</label><br>
+                        <label><input type="radio" name="q20" value="4" required> D.几乎总是如此</label><br>
+                        </div>
+                    </li>
+
                     </ol>
                    
                 <button type="submit" class="btn btn-info btn-block">查看报告</button>

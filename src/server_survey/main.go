@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"log"
@@ -20,8 +21,9 @@ const (
 	PHQ15 string = "phq15"
 	GHQ12 string = "ghq12"
 	SASRQ string = "sasrq"
-	PCLC string = "pcl-c"
-	STAI string = "stai"
+	PCLC string = "pclc"
+	SAI string = "sai"
+	TAI string = "tai"
 )
 
 func init() {
@@ -32,7 +34,8 @@ func init() {
 	nameAry[GHQ12] = `一般健康问卷`
 	nameAry[SASRQ] = `斯坦福急性应激反应问卷`
 	nameAry[PCLC] = `PTSD17项筛查问卷`
-	nameAry[STAI] = `状态一特质焦虑问卷`
+	nameAry[SAI] = `状态焦虑问卷`
+	nameAry[TAI] = `特质焦虑问卷`
 
 	resultFmt = make(map[string]string)
 	resultFmt[GAD7] = `
@@ -80,12 +83,14 @@ SASRQ用于评估创伤幸存者的急性应激反应。该问卷共30个项目�
 问卷中每一条目的评分分为5级: “没有什么反应”评1分； “轻度反应” 评2分；“中度反应”评3分；“重度反应” 评4分；“极重度反应” 评5分。累积记分大于50分即为筛选阳性，进入PTSD的诊断程序。
 `
 
-	resultFmt[STAI] = `
+	resultFmt[SAI] = `
 STAI的内容、评定与计分方法：
 一、内容：由指导语和二个分量表共40项描述题组成。第1-20项为状态焦虑量表(STAI，Form Y-I，以下简称S-AD。其中半数为描述负性情绪的条目，半数为正性情绪条目。主要用于评定即刻的或最近某一特定时间或情景的恐惧、紧张、忧虑和神经质的体验或感受。可用来评价应激情况下的状态焦虑。第21-40题为特质焦虑量表（STAI，Form Y-l，简称T-AI)，用于评定人们经常的情绪体验。其中有11项为描述负性情绪条目，9项为正性情绪条目。可广泛应用于评定内科、外科、心身疾病及精神病人的焦虑情绪；也可用来筛查高校学生、军人，和其他职业人群的有关焦虑问题；以及评价心理治疗、药物治疗的效果。
 二、评定方法：该问卷由自我评定或自我报告来完成。受试者根据指导语逐题圈出答案。可用于个人或集体测试，受试者一般需具有初中文化水平。测查无时间限制，一般10-20分钟可完成整个量表条目的回答。
 计分法：STAI每一项进行1-4级评分S-AI：1一完全没有，2一有些，3一中等程度，4一非常明显。T-AI：1一几乎没有，2一有些，3一经常，4一几乎总是如此。由受试者根据自己的体验选圈最合适的分值。凡正性情绪项目均为反序计分。分别计算S-AI和T-AI量表的累加分，最小值20，最大值为80，反映状态或特质焦虑的程度。
 `
+
+	resultFmt[TAI] = resultFmt[SAI]
 }
 
 func main() {
@@ -305,7 +310,7 @@ func getDesByScore(scoreAry []int , desAry []string, curScore int) string {
 	return desAry[len(desAry) - 1]
 }
 
-func getDes(name string, totalScore int) string {
+func getDes(name string, totalScore int, qAry []int) (string, string) {
 	log.Printf("getDes by %v score %v \n", name, totalScore)
 
 	switch name {
@@ -318,7 +323,7 @@ func getDes(name string, totalScore int) string {
 			scoreAry := []int{4,9,14,21}
 			desAry := []string {"无焦虑", "轻度焦虑", "中度焦虑", "重度焦虑"}
 			//desAry := []string {"", "", "", ""}
-			return getDesByScore(scoreAry, desAry, totalScore)
+			return getDesByScore(scoreAry, desAry, totalScore), ""
 		}
 
 	case PHQ9:
@@ -326,7 +331,7 @@ func getDes(name string, totalScore int) string {
 			scoreAry := []int{4,9,14,19, 1000}
 			desAry := []string {"无抑郁症状", "轻微抑郁症状", "中度抑郁症状", "重度抑郁症状", "极重度抑郁症状"}
 			//desAry := []string {"", "", "", ""}
-			return getDesByScore(scoreAry, desAry, totalScore)
+			return getDesByScore(scoreAry, desAry, totalScore), ""
 		}
 
 	case PHQ15:
@@ -334,7 +339,7 @@ func getDes(name string, totalScore int) string {
 			scoreAry := []int{4,9,14,30}
 			desAry := []string {"无躯体症状", "轻度躯体症状", "中度躯体症状", "重度躯体症状"}
 			//desAry := []string {"", "", "", ""}
-			return getDesByScore(scoreAry, desAry, totalScore)
+			return getDesByScore(scoreAry, desAry, totalScore), ""
 		}
 
 	case GHQ12:
@@ -342,26 +347,102 @@ func getDes(name string, totalScore int) string {
 			scoreAry := []int{3,100}
 			desAry := []string {"一切OK", "存在压力"}
 			//desAry := []string {"", "", "", ""}
-			return getDesByScore(scoreAry, desAry, totalScore)
+			return getDesByScore(scoreAry, desAry, totalScore), ""
 		}
 
 	case SASRQ:
 		{
+			// 积分规则特殊处理 分类处理
+			indexAryAry := [][]int {
+				// 参考desFmtAry
+				[]int{20, 28},
+				[]int{4, 24},
+				[]int{3, 18},
+				[]int{10, 13},
+				[]int{16, 25},
+				[]int{20, 28, 4, 24, 3, 18, 10, 13, 16, 25},
+				[]int{6, 7, 15, 19, 23, 29},
+				[]int{5, 11,14,17,22,30},
+				[]int{1, 2, 8, 12, 21, 27},
+				[]int{9, 26},
+			}
+			needCountAry := []int {1, 1, 1, 1, 1, 3, 1, 1, 1, 1}
+			desFmtAry := []string {
+				"存在%v项麻木和疏离感症状",
+				"存在%v项环境意识降低症状",
+				"存在%v项现实解体症状",
+				"存在%v项人格解体症状",
+				"存在%v项分离性遗忘症状",
+				"存在%v项分离性症状症状",
+				"存在%v项创伤再体验症状",
+				"存在%v项回避症状",
+				"存在%v项显著焦虑或唤起增加症状",
+				"存在%v项社交和职业功能损害症状",
+			}
+			countOfScoreGT3Ary := make([]int, len(needCountAry))
 
+			var buffer bytes.Buffer
+			for i := 0; i < len(needCountAry); i++ {
+				indexAry := indexAryAry[i]
+				countOfScoreGT3Ary[i] = 0
+				for j := 0; j < len(indexAry); j++ {
+					index := indexAry[j] - 1
+					if index >= 0 && index < len(qAry) {
+						if qAry[index] >= 3 {
+							countOfScoreGT3Ary[i]++
+						}
+					}
+				}
+
+				if countOfScoreGT3Ary[i] > 0 {
+					buffer.WriteString(fmt.Sprintf(desFmtAry[i], countOfScoreGT3Ary[i]))
+					buffer.WriteString("\n")
+					buffer.WriteString("\n")
+				}
+			}
+
+			judgeIndexAry := []int {5, 6, 7, 8}
+			judgeNeedCount := []int {3, 1, 1, 1}
+
+			des := ""
+
+			judgeSasrq := true
+			for i := 0; i < len(judgeIndexAry); i++  {
+				index := judgeIndexAry[i]
+				if countOfScoreGT3Ary[index] < judgeNeedCount[i] {
+					judgeSasrq = false
+					break
+				}
+			}
+			if judgeSasrq {
+				des = "诊断为急性应激障碍的临床表现"
+			} else {
+				des = "无明显急性应激障碍的临床表现"
+			}
+
+			return des, buffer.String()
 		}
 
 	case PCLC:
 		{
-
+			scoreAry := []int{50,1000}
+			desAry := []string {"一切OK", "阳性,应进入PTSD的诊断程序"}
+			//desAry := []string {"", "", "", ""}
+			return getDesByScore(scoreAry, desAry, totalScore), ""
 		}
 
-	case STAI:
+	case SAI:
 		{
+			return "最小值20，最大值为80，反映状态或特质焦虑的程度", ""
+		}
 
+	case TAI:
+		{
+			return "最小值20，最大值为80，反映状态或特质焦虑的程度", ""
 		}
 	}
 
-	return "not found " + name
+	return "not found " + name, ""
 }
 
 func postAnswerX(c *gin.Context) {
@@ -392,7 +473,7 @@ func postAnswerX(c *gin.Context) {
 	log.Printf("qAry:%v\n", qAry)
 
 	score := getScore(name, qAry)
-	des := getDes(name, score)
+	des, des_detail := getDes(name, score, qAry	)
 	des_ref := resultFmt[name]
 	nameLang := nameAry[name]
 
@@ -400,6 +481,7 @@ func postAnswerX(c *gin.Context) {
 		"name":    nameLang,
 		"score":   score,
 		"des":     des,
+		"des_detail": des_detail,
 		"des_ref": des_ref,
 	}
 

@@ -56,16 +56,17 @@
         <div class="col-md-12 column">
             <div class="printContent">
                 <div class="page-header">
-                    <h1 style="text-align: center;">
+                    <h2 style="text-align: center;">
                         您的报告({{ .name }})
-                    </h1>
+                    </h2>
                 </div>
                 <div class="h4" id="printContent">
                     <div>
-                        评价: {{ .des }}<br><br>
+                        总分: {{ .score }}<br><br>
                     </div>
                     <div>
-                        总分: {{ .score }}<br><br>
+                        评价: {{ .des }}<br><br>
+                        <pre>{{ .des_detail }}</pre>
                     </div>
 
                 </div>
